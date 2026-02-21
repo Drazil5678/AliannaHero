@@ -1,0 +1,157 @@
+/* Container fills the screen */
+.hero-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+  z-index: 999;
+}
+
+/* Left image slides across and fades */
+.left-image {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 2;
+  animation: slideAndFadeLeft 6s forwards;
+  animation-timing-function: ease-in-out;
+}
+
+/* Right image slides across and fades */
+.right-image {
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 50vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 2;
+  animation: slideAndFadeRight 6s forwards;
+  animation-timing-function: ease-in-out;
+}
+
+/* Keyframes for dramatic sliding and fading */
+@keyframes slideAndFadeLeft {
+  0% { left: -50%; opacity: 1; transform: scale(1); }
+  50% { left: 25%; opacity: 1; transform: scale(1.05); }
+  100% { left: 50%; opacity: 0; transform: scale(1.1); }
+}
+
+@keyframes slideAndFadeRight {
+  0% { right: -50%; opacity: 1; transform: scale(1); }
+  50% { right: 25%; opacity: 1; transform: scale(1.05); }
+  100% { right: 50%; opacity: 0; transform: scale(1.1); }
+}
+
+/* Final cinematic image fades in gently */
+.final-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeInFinal 4s forwards;
+  animation-delay: 6s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Fade in + subtle zoom */
+@keyframes fadeInFinal {
+  0% { opacity: 0; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.03); }
+}
+
+/* Tagline styling */
+.tagline {
+  position: absolute;
+  bottom: 220px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  font-family: 'Georgia', serif;
+  font-size: 2.8vw;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  z-index: 3;
+  animation: riseUp 2.5s forwards, glow 2s infinite alternate;
+  animation-delay: 9s;
+  animation-timing-function: ease-in-out;
+  letter-spacing: 1px;
+}
+
+/* Rising animation for tagline */
+@keyframes riseUp {
+  0% { opacity: 0; transform: translateX(-50%) translateY(50px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Glow pulse for tagline */
+@keyframes glow {
+  0% { text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+  100% { text-shadow: 0 0 25px rgba(255,255,255,0.9); }
+}
+
+/* Divider line */
+.divider {
+  position: absolute;
+  bottom: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 2px;
+  background: rgba(243,158,183,0.5);
+  opacity: 0;
+  z-index: 3;
+  animation: fadeInDivider 1.5s forwards;
+  animation-delay: 11.5s;
+}
+
+@keyframes fadeInDivider {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Social Buttons container */
+.social-buttons {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 120px;
+  z-index: 4;
+  opacity: 0;
+  animation: fadeInButtons 1.5s forwards;
+  animation-delay: 12s;
+}
+
+/* Individual buttons */
+.social-btn {
+  color: #f39eb7;
+  font-size: 3.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  filter: drop-shadow(0 0 5px rgba(243,158,183,0.5));
+}
+
+/* Hover glow effect */
+.social-btn:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 20px rgba(243,158,183,0.9))
+          drop-shadow(0 0 30px rgba(243,158,183,0.6));
+}
+
+/* Fade-in + subtle rise for buttons */
+@keyframes fadeInButtons {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
